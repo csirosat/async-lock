@@ -162,7 +162,7 @@ impl<T: ?Sized> Mutex<T> {
 
             // If waiting for too long, fall back to a fairer locking strategy that will prevent
             // newer lock operations from starving us forever.
-            #[cfg(not(target_arch = "wasm32"))]
+            // #[cfg(not(target_arch = "wasm32"))]
             if start.elapsed() > Duration::from_micros(500) {
                 break;
             }
